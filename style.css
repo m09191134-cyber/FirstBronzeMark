@@ -1,0 +1,352 @@
+/* إعدادات عامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+ font-family: 'Noto Kufi Arabic', sans-serif;
+  background-color: #f8f8f8;
+  color: #222;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Noor', sans-serif;
+  font-weight: bold;
+}
+
+/* الرأس */
+header {
+  background: linear-gradient(90deg, #002d3b, #01485c);
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-area img {
+  width: 100px;
+  filter: none; /* ✅ إلغاء تحويل اللون للأبيض */
+}
+
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* الروابط */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #b08a3e;
+}
+
+/* زر اللغة */
+.lang-btn {
+  background: #b08a3e;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover {
+  background: #d5a84b;
+}
+
+/* القسم الترحيبي */
+.hero {
+  background: linear-gradient(rgba(255, 255, 255, 0.903), rgba(244, 223, 170, 0.9)),
+    url("https://jordanexports.jo/wp-content/uploads/2021/08/hector-j-rivas-Nh6NsnqYVsI-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  color:#222;
+  text-align: center;
+  padding: 160px 20px;
+}
+.hero img {
+  width: 300px;
+  margin-bottom: 20px;
+  filter: none; /* ✅ عرض الشعار بألوانه الأصلية */
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #222;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.hero p {
+  font-size: 24px;
+  max-width: 700px;
+  margin: 10px auto;
+}
+
+/* الأقسام العامة */
+section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+section h2,
+section p,
+section ul {
+  position: relative;
+  z-index: 1;
+}
+
+/* خلفيات الأقسام */
+#about::before {
+  background-image: url("https://media.elwatannews.com/media/img/mediaarc/large/5205555371661021736.jpg");
+}
+#services::before {
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20240703/pngtree-two-businessman-handshaking-close-up-image_15934634.jpg");
+}
+#products::before {
+  background-image: url("https://images.unsplash.com/photo-1585386959984-a41552231693");
+}
+#why::before {
+  background-image: url("https://media.majarracdn.cloud/naf/2025/10/%D9%86%D9%81%D8%B3%D9%8A%D8%AA%D9%8A-%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%A7%D9%84%D8%AB%D9%82%D8%A9-1200x675.jpg");
+}
+#contact::before {
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20221130/pngtree-businessman-engages-with-smartphone-in-office-work-environment-closeup-photo-image_42728974.jpg");
+}
+
+/* العناوين */
+section h2 {
+  color: #002d3b;
+  margin-bottom: 20px;
+  border-right: 5px solid #b08a3e;
+  padding-right: 10px;
+  font-size: 26px;
+}
+
+/* قائمة الخدمات */
+ul {
+  list-style-type: square;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* المنتجات */
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin: 50px 0;
+}
+
+.product.reverse {
+  flex-direction: row-reverse;
+}
+
+.product img {
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h3 {
+  color: #b08a3e;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* التذييل */
+footer {
+  background-color: #002d3b;
+  color: #eee;
+  text-align: center;
+  padding: 25px;
+  font-size: 15px;
+  margin-top: 60px;
+}
+
+/* زر العودة للأعلى */
+#toTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #b08a3e;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  font-size: 18px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+
+#toTop:hover {
+  background-color: #d5a84b;
+  transform: scale(1.1);
+}
+
+/* شاشة التحميل */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #002d3b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-logo {
+  width: 110px;
+  animation: logoZoom 1.5s ease-in-out infinite alternate;
+}
+
+.loader-circle {
+  margin-top: 20px;
+  width: 45px;
+  height: 45px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #b08a3e;
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes logoZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* الاستجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  section {
+    padding: 25px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 20px;
+  }
+
+  .product {
+    flex-direction: column;
+  }
+
+  .product img {
+    width: 100%;
+  }
+}
