@@ -143,18 +143,144 @@
 
   <!-- الجافاسكربت -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // شاشة التحميل
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      setTimeout(() => loader.classList.add("hidden"), 400);
+document.addEventListener("DOMContentLoaded", () => {
+  // شاشة التحميل
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => loader.classList.add("hidden"), 400);
+  });
+
+  const translations = {
+    ar: {
+      title: "شركة العلامة البرونزية الأولى",
+      heroTitle: "شركة العلامة البرونزية الأولى لتوريد المنسوجات والملابس والأحذية",
+      heroText: "نقدم منتجات عالية الجودة تلبي احتياجات السوق الليبي من الأقمشة، الملابس، والأحذية بمواصفات عالمية.",
+      nav: ["الرئيسية", "من نحن", "منتجاتنا", "الخدمات", "اتصل بنا"],
+      aboutTitle: "من نحن",
+      aboutText: "شركة ليبية متخصصة في توريد الملابس والمنسوجات والأحذية عالية الجودة من كبرى المصانع العالمية لتلبية احتياجات السوق المحلي بكفاءة وتميّز.",
+      aboutVision: "رؤيتنا: أن نكون الشريك الأول والمورد الموثوق في مجال الألبسة والمنسوجات في ليبيا.",
+      aboutMission: "رسالتنا: تقديم منتجات تجمع بين الجودة، الأناقة، والسعر المناسب.",
+      servicesTitle: "الخدمات",
+      servicesList: [
+        "توريد الملابس الجاهزة لمختلف القطاعات (المدارس، الشركات، المؤسسات).",
+        "استيراد الأقمشة والمفروشات من أبرز الموردين العالميين.",
+        "توفير أحذية ذات جودة عالية ومتانة طويلة الأمد.",
+        "تلبية الطلبات الخاصة للمشاريع التجارية والمؤسسات."
+      ],
+      productsTitle: "منتجاتنا",
+      prod1: ["الملابس الرجالية", "مجموعة واسعة من الملابس الرجالية الأنيقة والمريحة المصممة بمعايير جودة عالية."],
+      prod2: ["الملابس النسائية", "تصاميم عصرية تلبي ذوق المرأة العصرية وتجمع بين الأناقة والراحة."],
+      prod3: ["ملابس الأطفال", "ملابس أطفال بأقمشة ناعمة وجودة عالية توفر الراحة والأناقة."],
+      prod4: ["المنسوجات", "أقمشة متعددة الاستخدامات بجودة فائقة وألوان متنوعة تلبي احتياجات السوق."],
+      prod5: ["الأحذية", "أحذية متينة وعصرية تلائم جميع الأذواق وتناسب مختلف الاستخدامات اليومية."],
+      whyTitle: "لماذا نحن؟",
+      whyList: [
+        "خبرة طويلة في السوق المحلي والدولي.",
+        "منتجات ذات جودة عالية من مصادر موثوقة.",
+        "التزام بالمواعيد وخدمة عملاء مميزة.",
+        "أسعار تنافسية وتنوع في الخيارات."
+      ],
+      contactTitle: "اتصل بنا",
+      contactText: "العنوان: طرابلس – ليبيا<br>الهاتف: 091-0000000<br>البريد الإلكتروني: info@bronze.ly",
+      footer: "© 2025 شركة العلامة البرونزية الأولى – جميع الحقوق محفوظة."
+    },
+    en: {
+      title: "First Bronze Mark Co.",
+      heroTitle: "First Bronze Mark Co. for Textiles, Clothing and Footwear",
+      heroText: "We provide high-quality textiles, clothing, and footwear that meet international standards.",
+      nav: ["Home", "About", "Products", "Services", "Contact"],
+      aboutTitle: "About Us",
+      aboutText: "A Libyan company specialized in supplying high-quality clothing, textiles, and footwear from leading global factories to meet local market needs.",
+      aboutVision: "Our Vision: To be the leading and trusted supplier in the clothing and textile sector in Libya.",
+      aboutMission: "Our Mission: To deliver products that combine quality, elegance, and affordability.",
+      servicesTitle: "Our Services",
+      servicesList: [
+        "Supplying ready-made garments for various sectors (schools, companies, institutions).",
+        "Importing fabrics and furnishings from top global suppliers.",
+        "Providing durable, high-quality footwear.",
+        "Fulfilling custom orders for commercial and institutional projects."
+      ],
+      productsTitle: "Our Products",
+      prod1: ["Men’s Clothing", "A wide range of stylish and comfortable men's clothing designed with high-quality standards."],
+      prod2: ["Women’s Clothing", "Modern designs that combine elegance and comfort to suit all tastes."],
+      prod3: ["Kids’ Clothing", "High-quality, soft fabrics that ensure comfort and style for children."],
+      prod4: ["Textiles", "Premium-quality fabrics in a variety of colors and materials for all uses."],
+      prod5: ["Footwear", "Durable, stylish shoes suitable for all tastes and daily use."],
+      whyTitle: "Why Choose Us?",
+      whyList: [
+        "Extensive experience in local and international markets.",
+        "High-quality products from trusted sources.",
+        "Commitment to deadlines and excellent customer service.",
+        "Competitive prices and diverse options."
+      ],
+      contactTitle: "Contact Us",
+      contactText: "Address: Tripoli, Libya<br>Phone: +218919661319 | +218912334695<br>Email: Gelissakhaled@gmail.com",
+      footer: "© 2025 First Bronze Mark Co. – All rights reserved."
+    }
+  };
+
+  let currentLang = "ar";
+
+  window.toggleLang = function() {
+    const html = document.documentElement;
+    const btn = document.querySelector(".lang-btn");
+    currentLang = currentLang === "ar" ? "en" : "ar";
+    const t = translations[currentLang];
+
+    html.lang = currentLang;
+    html.dir = currentLang === "ar" ? "rtl" : "ltr";
+    btn.innerText = currentLang === "ar" ? "EN" : "AR";
+
+    document.getElementById("title").innerText = t.title;
+    document.getElementById("hero-title").innerText = t.heroTitle;
+    document.getElementById("hero-text").innerText = t.heroText;
+
+    const navIds = ["nav-home", "nav-about", "nav-products", "nav-services", "nav-contact"];
+    navIds.forEach((id, i) => document.getElementById(id).innerText = t.nav[i]);
+
+    document.getElementById("about-title").innerText = t.aboutTitle;
+    document.getElementById("about-text").innerText = t.aboutText;
+    document.getElementById("about-vision").innerHTML = "<strong>" + t.aboutVision.split(":")[0] + ":</strong> " + t.aboutVision.split(":")[1];
+    document.getElementById("about-mission").innerHTML = "<strong>" + t.aboutMission.split(":")[0] + ":</strong> " + t.aboutMission.split(":")[1];
+
+    document.getElementById("services-title").innerText = t.servicesTitle;
+    const sList = document.getElementById("services-list");
+    sList.innerHTML = "";
+    t.servicesList.forEach(i => {
+      const li = document.createElement("li");
+      li.innerText = i;
+      sList.appendChild(li);
     });
 
-    // الترجمة الثنائية
-    const translations = { /* المحتوى كما هو */ };
-    // باقي الكود كما هو بدون تعديل
+    document.getElementById("products-title").innerText = t.productsTitle;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById(`prod${i}-title`).innerText = t[`prod${i}`][0];
+      document.getElementById(`prod${i}-text`).innerText = t[`prod${i}`][1];
+    }
+
+    document.getElementById("why-title").innerText = t.whyTitle;
+    const wList = document.getElementById("why-list");
+    wList.innerHTML = "";
+    t.whyList.forEach(i => {
+      const li = document.createElement("li");
+      li.innerText = i;
+      wList.appendChild(li);
+    });
+
+    document.getElementById("contact-title").innerText = t.contactTitle;
+    document.getElementById("contact-text").innerHTML = t.contactText;
+    document.getElementById("footer-text").innerText = t.footer;
+  };
+
+  // زر الصعود للأعلى
+  const toTop = document.getElementById("toTop");
+  window.addEventListener("scroll", () => {
+    toTop.style.display = window.scrollY > 300 ? "block" : "none";
   });
-  </script>
+  window.scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
 
 </body>
 </html>
+
